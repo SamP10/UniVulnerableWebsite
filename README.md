@@ -1,1 +1,1 @@
-# UniVulnerableWebsite
+# A vulnerable university website
