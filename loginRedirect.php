@@ -8,16 +8,17 @@ if(isset($_SESSION["loggedin"])){
     while($row=mysqli_fetch_array($db)){
         $authority = $row['priv_id'];
         if($authority==1){
-            echo"You are IT";
+            header("location: ITAdmin.php");
         }elseif($authority==2){
-            echo"You are Staff";
+            header("location: StaffProfile.php");
         }elseif($authority==3){
-            echo"You are Student";
+            header("location: StudentProfile.php");
         }else{
             echo"Failed to understand authority";
+            session_destroy();
+            header("location: login.php");
         }
     }
-
 }else{
     header("location: login.php");
 }

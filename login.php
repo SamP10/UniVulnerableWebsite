@@ -2,7 +2,7 @@
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
+    header("location: loginRedirect.php");
     exit;
 }
 
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: index.php");
+                            header("location: loginRedirect.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -96,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h1>Login</h1>
         <fieldset>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label for="username">Email:</label>
+                <label for="username">Username:</label>
                 <input type="text" name="username" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
