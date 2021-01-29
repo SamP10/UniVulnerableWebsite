@@ -1,8 +1,8 @@
 <?php
-require_once "init.php";
+session_start();
 if(isset($_SESSION['loggedin'])){
-    if($_SESSION['priv_id']==2){
-        echo"Hello ".$_SESSION['username'];
+    if($_SESSION['priv_id']==1){
+
     }else{
         header("location: loginRedirect.php");
     }
