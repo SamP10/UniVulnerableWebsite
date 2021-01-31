@@ -20,92 +20,56 @@ if(isset($_SESSION['loggedin'])){
 </head>
 <body>
 <legend>Student Lookup</legend>
-    <form action="" method="post">
-        By username:<input type="text" name="uname">
-        By first name:<input type="text" name="fname">
-        By surname:<input type="text" name="sname">
-        By student ID:<input type="text" name="student_id">
-        By date of birth:<input type="date" name="dob">
-        <input type="submit" value="submit">
+    <form action="" method="POST">
+        By username:<input type="text" name="username"><br>
+        By first name:<input type="text" name="fname"><br>
+        By surname:<input type="text" name="sname"><br>
+        By student ID:<input type="text" name="student_id"><br>
+        By date of birth:<input type="date" name="dob"><br>
+        <button type="submit" name="submit" value="submit">Submit</button>
     </form>
-</body>
-</html>
+<br><br>
+
 <?php
-if(!empty($_REQUEST['uname'])){
-    $var = $_REQUEST['uname'];
-    $sql="SELECT * FROM students WHERE username='$var'";
-    $run=mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_array($run)){
-        echo"Username: ".$row['username'];
-        echo"<br />First Name: ".$row['fname'];
-        echo"<br />Surname: ".$row['sname'];
-        echo"<br />Student ID: ".$row['student_id'];
-        echo"<br />D.O.B: ".$row['dob'];
-        echo"<br />Address: ".$row['address'];
-        echo"<br />Graduation Year: ".$row['graduation'];
-        echo"<br /><img src=''>";
-        echo"<br /><br />";
+if(isset($_POST['submit'])){
+
+    $fields=array('username', 'fname', 'sname', 'student_id', 'dob');
+    $conditions=array();
+
+    foreach($fields as $field){
+        if(isset($_POST[$field]) && $_POST[$field] != ''){
+            $conditions[]="$field LIKE '%" . $_POST[$field] . "%'";
+        }
     }
-}elseif (!empty($_REQUEST['fname'])){
-    $var = $_REQUEST['fname'];
-    $sql="SELECT * FROM students WHERE fname='$var'";
-    $run=mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_array($run)){
-        echo"Username: ".$row['username'];
-        echo"<br />First Name: ".$row['fname'];
-        echo"<br />Surname: ".$row['sname'];
-        echo"<br />Student ID: ".$row['student_id'];
-        echo"<br />D.O.B: ".$row['dob'];
-        echo"<br />Address: ".$row['address'];
-        echo"<br />Graduation Year: ".$row['graduation'];
-        echo"<br /><img src=''>";
-        echo"<br /><br />";
+
+    $query = "SELECT * FROM students ";
+    if(count($conditions) > 0){
+        $query .= "WHERE " . implode(' AND ', $conditions);
     }
-}elseif (!empty($_REQUEST['sname'])){
-    $var = $_REQUEST['sname'];
-    $sql="SELECT * FROM students WHERE sname='$var'";
-    $run=mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_array($run)){
+    $result = mysqli_query($connect, $query) or die(mysqli_error());
+
+
+    while($row=mysqli_fetch_array($result)){
         echo"Username: ".$row['username'];
-        echo"<br />First Name: ".$row['fname'];
-        echo"<br />Surname: ".$row['sname'];
-        echo"<br />Student ID: ".$row['student_id'];
-        echo"<br />D.O.B: ".$row['dob'];
-        echo"<br />Address: ".$row['address'];
-        echo"<br />Graduation Year: ".$row['graduation'];
-        echo"<br /><img src=''>";
-        echo"<br /><br />";
-    }
-}elseif (!empty($_REQUEST['student_id'])){
-    $var = $_REQUEST['student_id'];
-    $sql="SELECT * FROM students WHERE student_id='$var'";
-    $run=mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_array($run)){
-        echo"Username: ".$row['username'];
-        echo"<br />First Name: ".$row['fname'];
-        echo"<br />Surname: ".$row['sname'];
-        echo"<br />Student ID: ".$row['student_id'];
-        echo"<br />D.O.B: ".$row['dob'];
-        echo"<br />Address: ".$row['address'];
-        echo"<br />Graduation Year: ".$row['graduation'];
-        echo"<br /><img src=''>";
-        echo"<br /><br />";
-    }
-}elseif (!empty($_REQUEST['dob'])){
-    $var = $_REQUEST['dob'];
-    $sql="SELECT * FROM students WHERE dob='$var'";
-    $run=mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_array($run)){
-        echo"Username: ".$row['username'];
-        echo"<br />First Name: ".$row['fname'];
-        echo"<br />Surname: ".$row['sname'];
-        echo"<br />Student ID: ".$row['student_id'];
-        echo"<br />D.O.B: ".$row['dob'];
-        echo"<br />Address: ".$row['address'];
-        echo"<br />Graduation Year: ".$row['graduation'];
-        echo"<br /><img src=''>";
-        echo"<br /><br />";
+        echo"<br>Name: ".$row['fname']." ".$row['sname'];
+        echo"<br>Student ID: ".$row['student_id'];
+        echo"<br>D.O.B: ".$row['dob'];
+        echo"<br>Email: ".$row['email'];
+        echo"<br>Contact number: ".$row['contact'];
+        if($row['course_id']==0){
+            echo"<br>Studies: Mathematics";
+        }elseif($row['course_id']==1){
+            echo"<br>Studies: English";
+        }elseif($row['course_id']==2){
+            echo"<br>Studies: Computing";
+        }
+        echo"<br>Address: ".$row['address'];
+        echo"<br>Graduates: ".$row['graduation'];
+        echo"<br><br>";
     }
 }else{
-    echo"No Student Match";
+    echo"Please search for students";
 }
+?>
+</body>
+</html>
