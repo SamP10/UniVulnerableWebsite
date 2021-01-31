@@ -44,7 +44,7 @@ if(!empty($_REQUEST['uname'])){
         echo"<br />Address: ".$row['address'];
         echo"<br />Graduation Year: ".$row['graduation'];
         echo"<br /><img src=''>";
-        echo"<br /><br />>";
+        echo"<br /><br />";
     }
 }elseif (!empty($_REQUEST['fname'])){
     $var = $_REQUEST['fname'];
@@ -59,11 +59,11 @@ if(!empty($_REQUEST['uname'])){
         echo"<br />Address: ".$row['address'];
         echo"<br />Graduation Year: ".$row['graduation'];
         echo"<br /><img src=''>";
-        echo"<br /><br />>";
+        echo"<br /><br />";
     }
 }elseif (!empty($_REQUEST['sname'])){
     $var = $_REQUEST['sname'];
-    $sql="SELECT * FROM students WHERE sname=$var";
+    $sql="SELECT * FROM students WHERE sname='$var'";
     $run=mysqli_query($connect, $sql);
     while($row = mysqli_fetch_array($run)){
         echo"Username: ".$row['username'];
@@ -74,11 +74,11 @@ if(!empty($_REQUEST['uname'])){
         echo"<br />Address: ".$row['address'];
         echo"<br />Graduation Year: ".$row['graduation'];
         echo"<br /><img src=''>";
-        echo"<br /><br />>";
+        echo"<br /><br />";
     }
 }elseif (!empty($_REQUEST['student_id'])){
     $var = $_REQUEST['student_id'];
-    $sql="SELECT * FROM students WHERE student_id=$var";
+    $sql="SELECT * FROM students WHERE student_id='$var'";
     $run=mysqli_query($connect, $sql);
     while($row = mysqli_fetch_array($run)){
         echo"Username: ".$row['username'];
@@ -89,11 +89,11 @@ if(!empty($_REQUEST['uname'])){
         echo"<br />Address: ".$row['address'];
         echo"<br />Graduation Year: ".$row['graduation'];
         echo"<br /><img src=''>";
-        echo"<br /><br />>";
+        echo"<br /><br />";
     }
 }elseif (!empty($_REQUEST['dob'])){
     $var = $_REQUEST['dob'];
-    $sql="SELECT * FROM students WHERE dob=$var";
+    $sql="SELECT * FROM students WHERE dob='$var'";
     $run=mysqli_query($connect, $sql);
     while($row = mysqli_fetch_array($run)){
         echo"Username: ".$row['username'];
@@ -104,7 +104,7 @@ if(!empty($_REQUEST['uname'])){
         echo"<br />Address: ".$row['address'];
         echo"<br />Graduation Year: ".$row['graduation'];
         echo"<br /><img src=''>";
-        echo"<br /><br />>";
+        echo"<br /><br />";
     }
 }else{
     echo"No Student Match";
