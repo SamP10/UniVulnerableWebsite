@@ -60,6 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION["priv_id"] = $priv_id;
 
                             // Redirect user to welcome page
                             header("location: loginRedirect.php");
@@ -108,7 +109,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="keepLog">Keep Logged in?</label>
             <input type="checkbox" name="keepLog">
             <input type="submit" class="btn btn-info" value="Login">
-            <input type="button" class="btn-outline-white" value="Register?">
         </fieldset>
     </form>
 </div>
