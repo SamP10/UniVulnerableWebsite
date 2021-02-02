@@ -16,7 +16,7 @@ if(isset($_SESSION['loggedin'])){
 <body>
 <a href="">Modules</a>
 <a href="">Email</a>
-<a href="">My Details</a>
+<a href="accountDetails.php">My Details</a>
 <a href="">Timetable</a>
 </body>
 </html>

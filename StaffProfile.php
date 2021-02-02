@@ -16,7 +16,7 @@ if(isset($_SESSION['loggedin'])){
 <body>
 <a href="StaffPages/studentLookup.php">Student Search</a>
 <a href="">Module Management</a>
-<a href="">My Details</a>
+<a href="accountDetails.php">My Details</a>
 <a href="">Email</a>
 <a href=""></a>
 </body>

@@ -1,17 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['loggedin'])){
-    if($_SESSION['priv_id']==2){
-        $host='localhost';
-        $user='admin';
-        $password='tiaspbiqe2r';
-        $dbname='university';
-//Database Connection with exit message upon error
-        $connect = mysqli_connect($host, $user, $password, $dbname) or exit("Unable to connect to database!");
-    }else{
-        header("location: loginRedirect.php");
-    }
-}
+include_once "init.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +43,7 @@ if(isset($_POST['submit'])){
         echo"<br>Student ID: ".$row['student_id'];
         echo"<br>D.O.B: ".$row['dob'];
         echo"<br>Email: ".$row['email'];
-        echo"<br>Contact number: ".$row['contact'];
+        echo"<br>Contact number: 0".$row['contact'];
         if($row['course_id']==0){
             echo"<br>Studies: Mathematics";
         }elseif($row['course_id']==1){
@@ -65,6 +53,9 @@ if(isset($_POST['submit'])){
         }
         echo"<br>Address: ".$row['address'];
         echo"<br>Graduates: ".$row['graduation'];
+        echo"<form action='studentView.php' method='POST'>";
+        echo'<button name="id" value="'.$row['id'].'" type="submit">VIEW</button>';
+        echo"</form>";
         echo"<br><br>";
     }
 }else{
