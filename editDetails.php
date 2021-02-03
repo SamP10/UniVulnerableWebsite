@@ -47,6 +47,7 @@ if(isset($_SESSION['loggedin'])){
             $ni_number=$_POST['ni_number'];
             $address=$_POST['address'];
             $sql="UPDATE staff SET (contact=$contact, address=$address, ni_number=$ni_number) WHERE staff_id=$id";
+            $run=mysqli_query($connect, $sql);
             header("Location: accountDetails.php");
             }else{
                 echo"Please fill all fields";
@@ -57,7 +58,8 @@ if(isset($_SESSION['loggedin'])){
                 //Initialize Data to update
                 $contact=$_POST['contact'];
                 $address=$_POST['address'];
-                $sql="UPDATE staff SET (contact=$contact, address=$address) WHERE student_id=$id";
+                $sql="UPDATE student SET (contact=$contact, address=$address) WHERE (student_id=$id)";
+                $run=mysqli_query($connect, $sql);
                 header("Location: accountDetails.php");
             }else{
                 echo"Please fill all fields";
