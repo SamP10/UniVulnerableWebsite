@@ -14,7 +14,7 @@ if(isset($_SESSION['loggedin'])){
 
 </head>
 <body>
-<a href="ITpages/accountAdminEdit.php">Account Admin Edit</a>
+<a href="ITpages/accountSearch.php">Account Admin Edit</a>
 <a href="ITpages/personalAdminEdit.php">Personal Details Edit</a>
 </body>
 </html>
