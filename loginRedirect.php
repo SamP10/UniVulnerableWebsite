@@ -10,10 +10,8 @@ if(isset($_SESSION["loggedin"])){
         $_SESSION['priv_id']=$authority;
         if($authority==1){
             header("location: ITAdmin.php");
-        }elseif($authority==2){
-            header("location: StaffProfile.php");
-        }elseif($authority==3){
-            header("location: StudentProfile.php");
+        }elseif($authority==2 || $authority==3){
+            header("location: homepage.php");
         }else{
             echo"Failed to establish authority";
             session_destroy();

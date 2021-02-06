@@ -2,7 +2,7 @@
 include_once "init.php";
 
 if(isset($_SESSION['loggedin'])){
-    echo "<h1>Edit Details </h1>";
+    echo "<h1>Edit Details</h1>";
     $id = $_POST['id'];
     if ($_SESSION['priv_id'] == 1 || $_SESSION['priv_id'] == 2) {
         $sql = "SELECT * FROM staff WHERE staff_id='$id'";
@@ -12,13 +12,9 @@ if(isset($_SESSION['loggedin'])){
             echo "<br>Contact: <input name='contact' value='0" . $row['contact']."'>";
             echo "<br>National Insurance: <input name='ni_number' value='".$row['ni_number']."'>";
             echo "<br>Address: <input name='address' value='".$row['address']."'>";
-            echo "<input type='hidden' name='id' value='".$row['staff_id']."'>";
-            echo "<button type='submit' name='updateD'>UPDATE DETAILS</button>";
+            echo "<button type='submit' name='updateD' value='".$row['staff_id']."'>UPDATE DETAILS</button>";
             echo "</form>";
         }
-        //Password change
-        $sql = "SELECT password FROM useraccounts WHERE user_id='$id'";
-        $passwd= mysqli_query($connect, $sql);
 
 
     } elseif ($_SESSION['priv_id'] == 3) {
@@ -28,8 +24,8 @@ if(isset($_SESSION['loggedin'])){
             echo "<form action='' method='POST'>";
             echo "<br>Contact: <input name='contact' value='0" . $row['contact']."'>";
             echo "<br>Address: <input name='address' value='".$row['address']."'>";
-            echo "<input type='hidden' name='id' value='".$row['staff_id']."'>";
-            echo "<button type='submit' name='updateD'>UPDATE DETAILS</button>";
+            echo "<input type='hidden' name='id' value='".$row['student_id']."'>";
+            echo "<br><button type='submit' name='updateD'>UPDATE DETAILS</button>";
             echo "</form>";
 
         }
@@ -39,8 +35,7 @@ if(isset($_SESSION['loggedin'])){
     echo"<form action='' method='post'>";
     echo"NEW PASSWORD: <input name='newPassword' type='password'>";
     echo"CONFIRM PASSWORD: <input name='confPassword' type='password'>";
-    echo "<input type='hidden' name='id' value='".$id."'>";
-    echo"<button type='submit' name='updateP'>UPDATE</button>";
+    echo"<button type='submit' name='updateP' value='".$id."'>UPDATE</button>";
     echo"</form>";
 
     if(isset($_POST['updateD'])){
@@ -63,6 +58,7 @@ if(isset($_SESSION['loggedin'])){
                 //Initialize Data to update
                 $contact=$_POST['contact'];
                 $address=$_POST['address'];
+                $id=$_POST['updateD'];
                 $sql="UPDATE students SET contact=$contact, address='$address' WHERE student_id=$id";
                 mysqli_query($connect, $sql);
                 header("Location: accountDetails.php");
@@ -72,10 +68,10 @@ if(isset($_SESSION['loggedin'])){
 
         }
         } elseif (isset($_POST['updateP'])) {
-        $id = $_POST['id'];
         if (!empty($_POST['newPassword']) && !empty($_POST['confPassword'])) {
             $newpassword = $_POST['newPassword'];
             $confPassword = $_POST['confPassword'];
+            $id=$_POST['updateP'];
 
             if ($newpassword == $confPassword) {
                 $hashedPassword = crypt($newpassword, gGouwXKp);
