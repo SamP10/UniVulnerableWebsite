@@ -1,6 +1,5 @@
 <?php
-include 'init.php';
-include 'navBar.php';
+include '../navBar.php';
 if(isset($_SESSION['loggedin'])&&$_SESSION['course_id']==2){
     if($_SESSION['priv_id']==3){
         $username=$_SESSION['username'];

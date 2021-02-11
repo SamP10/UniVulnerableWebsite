@@ -13,7 +13,7 @@ if(isset($_SESSION['loggedin'])){
         $run=mysqli_query($connect, $sql2);
         while($row=mysqli_fetch_array($run)){
             $_SESSION['course_id']=$course_id;
-            echo "Course: <a href='/UniSprint1/ModulePages/".$row['course_name'].".php'>".$row['course_name']."</a>";
+            echo "Course: <a href='./".$row['course_name'].".php'>".$row['course_name']."</a>";
         }
 
     }
