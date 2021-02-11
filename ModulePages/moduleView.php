@@ -1,5 +1,4 @@
 <?php
-include "init.php";
 include 'navBar.php';
 if(isset($_SESSION['loggedin'])){
     if($_SESSION['priv_id']==3){
