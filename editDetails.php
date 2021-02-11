@@ -1,6 +1,6 @@
 <?php
 include_once "init.php";
-
+include 'navBar.php';
 if(isset($_SESSION['loggedin'])){
     echo "<h1>Edit Details</h1>";
     $id = $_POST['id'];

@@ -1,5 +1,6 @@
 <?php
 include_once "init.php";
+include 'navBar.php';
 if(!isset($_SESSION['loggedin']) && $_SESSION['priv_id']!=1){
     header("Location: login.php");
 }

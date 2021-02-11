@@ -1,5 +1,6 @@
 <?php
 include_once 'init.php';
+include 'navBar.php';
 if(isset($_SESSION['loggedin'])) {
     echo"<h1>My Details</h1>";
     $acc_id = $_SESSION['id'];

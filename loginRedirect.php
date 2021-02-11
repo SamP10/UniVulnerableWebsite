@@ -11,7 +11,7 @@ if(isset($_SESSION["loggedin"])){
         if($authority==1){
             header("location: ITAdmin.php");
         }elseif($authority==2 || $authority==3){
-            header("location: homepage.php");
+            header("location: accountDetails.php");
         }else{
             echo"Failed to establish authority";
             session_destroy();
