@@ -1,6 +1,6 @@
 <?php
-include '../navBar.php';
-if(isset($_SESSION['loggedin'])&&$_SESSION['course_id']==2){
+include 'navBar.php';
+if(isset($_SESSION['loggedin'])){
     if($_SESSION['priv_id']==3){
         $username=$_SESSION['username'];
         $sql="SELECT graduation FROM students WHERE username='$username'";
@@ -17,7 +17,7 @@ if(isset($_SESSION['loggedin'])&&$_SESSION['course_id']==2){
             $data="SELECT * FROM modules WHERE course_id=$course_id AND year=$ThirdYears OR course_id=$course_id AND year=$SecondYears OR course_id=$course_id AND year=$FirstYears";
             $run=mysqli_query($connect, $data);
             while($row=mysqli_fetch_assoc($run)){
-                echo "<form method='POST' action='/UniSprint1/ModulePages/moduleView.php'>";
+                echo "<form method='POST' action='/UniSprint1/moduleView.php'>";
                 echo $row['module_name'];
                 echo "<button type='submit' name='module_id' value='".$row['module_id']."'>VIEW</button><br>";
                 echo "</form>";
@@ -33,7 +33,10 @@ if(isset($_SESSION['loggedin'])&&$_SESSION['course_id']==2){
             $data="SELECT * FROM modules WHERE course_id=$course_id AND year=$FirstYears OR course_id=$course_id AND year=$SecondYears ";
             $run=mysqli_query($connect, $data);
             while($row=mysqli_fetch_assoc($run)){
-                echo $row['module_name']."<br>";
+                echo "<form method='POST' action='/UniSprint1/moduleView.php'>";
+                echo $row['module_name'];
+                echo "<button type='submit' name='module_id' value='".$row['module_id']."'>VIEW</button><br>";
+                echo "</form>";
             }
             echo"You are second year";
         }elseif($year==2 || $year==3){
@@ -42,7 +45,10 @@ if(isset($_SESSION['loggedin'])&&$_SESSION['course_id']==2){
             $data="SELECT * FROM modules WHERE course_id=$course_id AND year=$FirstYears";
             $run=mysqli_query($connect, $data);
             while($row=mysqli_fetch_assoc($run)){
-                echo $row['module_name']."<br>";
+                echo "<form method='POST' action='/UniSprint1/moduleView.php'>";
+                echo $row['module_name'];
+                echo "<button type='submit' name='module_id' value='".$row['module_id']."'>VIEW</button><br>";
+                echo "</form>";
             }
             echo"You are first year";
         }

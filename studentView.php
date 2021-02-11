@@ -1,5 +1,6 @@
 <?php
 include_once 'init.php';
+include "navBar.php";
 $id= $_POST['id'];
 $sql="SELECT * FROM students WHERE id='$id'";
 $result=mysqli_query($connect, $sql) or die(mysqli_error());

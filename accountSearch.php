@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
         echo"<br>Email: ".$row['email'];
         echo"<br>Privilege: ".$row['priv_id'];
         echo"<br>User ID: ".$row['user_id'];
-        echo"<form action='accountEdit.php' method='POST'>";
+        echo "<form action='accountEdit.php' method='POST'>";
         echo'<button name="id" value="'.$row['id'].'" type="submit">EDIT</button>';
         echo"</form>";
         echo"<br><br>";

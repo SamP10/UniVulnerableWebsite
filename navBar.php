@@ -19,6 +19,8 @@ include_once 'init.php'
          }elseif($_SESSION['loggedin'] && $_SESSION['priv_id']==3){
              echo "<button class='nav-item' id='modules'>Course</button>";
 
+         }else{
+             header("location: login.php");
          }
 
          ?>
@@ -39,12 +41,12 @@ include_once 'init.php'
     </script>
     <script type="text/javascript">
         document.getElementById("stuLook").onclick = function () {
-            location.href = "StaffPages/studentLookup.php";
+            location.href = "studentLookup.php";
         };
       </script>
     <script>
         document.getElementById("accSearch").onclick = function () {
-            location.href = "ITpages/accountSearch.php";
+            location.href = "accountSearch.php";
         };
     </script>
     <script>

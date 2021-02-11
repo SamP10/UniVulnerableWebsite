@@ -1,5 +1,6 @@
 <?php
 include_once "init.php";
+include "navBar.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +54,7 @@ if(isset($_POST['submit'])){
         }
         echo"<br>Address: ".$row['address'];
         echo"<br>Graduates: ".$row['graduation'];
-        echo"<form action='studentView.php' method='POST'>";
+        echo "<form action='studentView.php' method='POST'>";
         echo'<button name="id" value="'.$row['id'].'" type="submit">VIEW</button>';
         echo"</form>";
         echo"<br><br>";
