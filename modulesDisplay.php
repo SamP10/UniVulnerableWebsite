@@ -60,12 +60,15 @@ if(isset($_SESSION['loggedin'])){
         $staff_id=$_SESSION['staff_id'];
         $data="SELECT * FROM modules WHERE module_lead_id=$staff_id";
         $run=mysqli_query($connect, $data);
+        echo"<h1>Your modules</h1>";
         while($row=mysqli_fetch_assoc($run)){
                 echo "<form method='POST' action='./moduleView.php'>";
                 echo "<h5>".$row['module_name']."</h5>";
                 echo "<button type='submit' name='module_id' value='".$row['module_id']."'>VIEW</button><br>";
                 echo "</form>";
         }
+
+
     }
 }
 ?>

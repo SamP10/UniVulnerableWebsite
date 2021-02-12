@@ -19,6 +19,8 @@ if(isset($_SESSION['loggedin'])){
             }
             echo"Credits for module: ".$row['credits'];
         }
+    }elseif ($_SESSION['priv_id']==2){
+
     }
 }
 ?>
