@@ -1,0 +1,20 @@
+body{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.navbar{
+    background-color: #1c6900;
+    border-bottom: lightgrey solid 7px;
+}
+
+.nav-item{
+    background-color: #00d273;
+    border: 0 solid;
+    border-radius: 6px;
+}
+
+nav-item:hover{
+    color: #009216;
+    background-color: #15a626;
+}

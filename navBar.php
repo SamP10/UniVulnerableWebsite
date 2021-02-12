@@ -5,29 +5,29 @@ include_once 'init.php'
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="layout.css">
 </head>
 <body>
  <div class="nav">
      <div class="navbar">
          <img class="navbar-brand" height="100" src="logo.png">
          <?php
-         if($_SESSION['loggedin'] && $_SESSION['priv_id']==1){
-             echo "<button class='nav-item d-inline' id='accSearch'>Account Search</button>";
-         }elseif($_SESSION['loggedin'] && $_SESSION['priv_id']==2){
-             echo "<button class='nav-item d-inline' id='stuLook'>Student Lookup</button>";
-             echo "<button class='nav-item' id='modules'>Course</button>";
-         }elseif($_SESSION['loggedin'] && $_SESSION['priv_id']==3){
-             echo "<button class='nav-item' id='modules'>Course</button>";
+         if(isset($_SESSION['loggedin'])) {
+             if ($_SESSION['loggedin'] && $_SESSION['priv_id'] == 1) {
+                 echo "<button class='nav-item d-inline' id='accSearch'>Account Search</button>";
+             } elseif ($_SESSION['loggedin'] && $_SESSION['priv_id'] == 2) {
+                 echo "<button class='nav-item d-inline' id='stuLook'>Student Lookup</button>";
+                 echo "<button class='nav-item' id='modules'>Course</button>";
+             } elseif ($_SESSION['loggedin'] && $_SESSION['priv_id'] == 3) {
+                 echo "<button class='nav-item' id='modules'>Course</button>";
 
+             }
+             echo '<button class="nav-item" id="accountDetails">My Account</button>';
+             echo '<button class="nav-item" id="logout">Logout</button>';
          }else{
-             header("location: login.php");
+             echo '<button class="nav-item" id="login">Login</button>';
          }
-
          ?>
-
-         <button class="nav-item" id="accountDetails">My Account</button>
-         <button class="nav-item" id="logout">Logout</button>
-
 
      </div>
  </div>
@@ -57,6 +57,11 @@ include_once 'init.php'
     <script>
         document.getElementById("logout").onclick = function () {
             location.href = "logout.php";
+        };
+    </script>
+    <script>
+        document.getElementById("login").onclick = function () {
+            location.href = "login.php";
         };
     </script>
 </footer>
