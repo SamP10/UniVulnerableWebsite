@@ -2,12 +2,7 @@
 include_once "init.php";
 include "navBar.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
+<div class="container" id="search">
 <legend>Student Lookup</legend>
     <form action="" method="POST">
         By username:<input type="text" name="username"><br>
@@ -18,7 +13,8 @@ include "navBar.php";
         <button type="submit" name="submit" value="submit">Submit</button>
     </form>
 <br><br>
-
+</div>
+<div class="container" id="results">
 <?php
 if(isset($_POST['submit'])){
 
@@ -63,5 +59,7 @@ if(isset($_POST['submit'])){
     echo"Please search for students";
 }
 ?>
+</div>
+
 </body>
 </html>

@@ -5,10 +5,7 @@ if(!isset($_SESSION['loggedin']) && $_SESSION['priv_id']!=1){
     header("Location: login.php");
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head></head>
-<body>
+<div class="container">
 <h1>User Account Edit</h1>
 <h2>Search user account</h2>
 <form action="" method="POST">
@@ -19,6 +16,8 @@ if(!isset($_SESSION['loggedin']) && $_SESSION['priv_id']!=1){
     <button type="submit" name="submit">Submit</button>
 </form>
 <br><br>
+</div>
+<div class="container" id="results">
 <?php
 if(isset($_POST['submit'])){
 
@@ -50,5 +49,6 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
+</div>
 </body>
 </html>

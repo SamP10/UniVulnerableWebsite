@@ -1,12 +1,15 @@
+
 <?php
 
 include "navBar.php";
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: accountDetails.php");
+    header("location: homepage.php");
     exit;
 }
-
+?>
+<div class="container">
+<?php
 // Include config file
 require_once "init.php";
 
@@ -65,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
                             // Redirect user to welcome page
-                            header("location: accountDetails.php");
+                            header("location: homepage.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -88,12 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($connect);
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
+</div>
 <div class="container-fluid" id="loginForm">
     <form class="form-inline" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <h1>Login</h1>

@@ -1,6 +1,9 @@
 <?php
 include_once 'init.php';
 include 'navBar.php';
+?>
+<div class="container">
+<?php
 if(isset($_SESSION['loggedin'])) {
     echo"<h1>My Details</h1>";
     $acc_id = $_SESSION['id'];
@@ -23,7 +26,7 @@ if(isset($_SESSION['loggedin'])) {
             echo "<br>National Insurance: ".$row['ni_number'];
             echo "<br>Address: ".$row['address'];
             echo "<form action='editDetails.php' method='POST'>";
-            echo "<a href='editDetails.php'><button name='id' value='".$user_id."'>EDIT</button></a>";
+            echo "<button type='submit' name='id' value='".$user_id."'>EDIT</button></a>";
             echo "</form>";
 
 
@@ -45,3 +48,7 @@ if(isset($_SESSION['loggedin'])) {
         }
     }
 }
+?>
+</div>
+</body>
+</html>

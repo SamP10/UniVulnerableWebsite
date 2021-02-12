@@ -1,6 +1,9 @@
 <?php
 include 'navBar.php';
 include_once "init.php";
+?>
+<div class="container">
+<?php
 if(!isset($_SESSION['loggedin']) && $_SESSION['priv_id']!=1){
     header("Location: login.php");
 }
@@ -8,20 +11,21 @@ $id=$_POST['id'];
 $sql="SELECT * FROM useraccounts WHERE id=$id";
 $result=mysqli_query($connect, $sql) or die (mysqli_error());
 while($row=mysqli_fetch_array($result)){
+    echo"<h1>Change Account Details</h1>";
     echo"<form action='' method='POST'>";
-    echo"Username: <input name='username' value='".$row['username']."'>";
-    echo"Email: <input name='email' value='".$row['email']."'>";
-    echo"User Privilege: <input name='priv_id' value='".$row['priv_id']."'>";
-    echo"User ID: <input name='user_id' value='".$row['user_id']."'>";
+    echo"Username: <input name='username' value='".$row['username']."'><br>";
+    echo"Email: <input name='email' value='".$row['email']."'><br>";
+    echo"User Privilege: <input name='priv_id' value='".$row['priv_id']."'><br>";
+    echo"User ID: <input name='user_id' value='".$row['user_id']."'><br>";
     echo "<input type='hidden' name='id' value='".$id."'>";
     echo "<button type='submit' name='updateA'>UPDATE</button>";
     echo"</form>";
 }
 echo"<h1>Password Change</h1>";
 echo"<form action='' method='post'>";
-echo"NEW PASSWORD: <input name='newPassword' type='password'>";
+echo"NEW PASSWORD: <input name='newPassword' type='password'><br>";
 echo"CONFIRM PASSWORD: <input name='confPassword' type='password'>";
-echo "<input type='hidden' name='id' value='".$id."'>";
+echo "<input type='hidden' name='id' value='".$id."'><br>";
 echo"<button type='submit' name='updateP'>UPDATE</button>";
 echo"</form>";
 
@@ -53,3 +57,6 @@ if(isset($_POST['updateP'])) {
     }
 }
 ?>
+</div>
+</body>
+</html>

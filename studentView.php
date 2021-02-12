@@ -1,6 +1,10 @@
 <?php
 include_once 'init.php';
 include "navBar.php";
+
+?>
+
+<?php
 $id= $_POST['id'];
 $sql="SELECT * FROM students WHERE id='$id'";
 $result=mysqli_query($connect, $sql) or die(mysqli_error());
@@ -21,3 +25,7 @@ while($row=mysqli_fetch_array($result)){
     echo"<br>Address: ".$row['address'];
     echo"<br>Graduates: ".$row['graduation'];
 }
+?>
+
+</body>
+</html>

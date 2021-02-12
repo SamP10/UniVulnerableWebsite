@@ -1,5 +1,8 @@
 <?php
 include 'navBar.php';
+?>
+<div class="container">
+<?php
 if(isset($_SESSION['loggedin'])){
     if($_SESSION['priv_id']==3){
         $module_id=$_POST['module_id'];
@@ -18,3 +21,7 @@ if(isset($_SESSION['loggedin'])){
         }
     }
 }
+?>
+</div>
+</body>
+</html>
