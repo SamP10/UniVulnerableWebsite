@@ -98,10 +98,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </fieldset>
     </form>
 </div>
-</body>
 <script>
         document.getElementById("loginRed").onclick = function () {
             location.href = "homepage.php";
         };
     </script>
+</body>
 </html>
