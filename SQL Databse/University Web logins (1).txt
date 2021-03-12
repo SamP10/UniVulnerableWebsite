@@ -1,0 +1,11 @@
+University Logins:
+USER			PASSWORD		PRIV_ID	
+W.Sean8406		K1rkgateM4rk		1
+K.Eden6310		admin_priv146		1
+C.Melissa7594		MelBIsQueen		2
+L.Dale186		Fufu-1243		2
+S.Charlotte6960		passw0rd46		2
+S.Dale6889		UpStartBlaze.32		2
+D.Alexander5330		xtremeUphill		3
+C.Abigail6652		FelicityJane_67		3
+H.Sebastian2026		tiaspbiqe2r		3
