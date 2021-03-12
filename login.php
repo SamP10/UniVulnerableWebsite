@@ -97,9 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <label for="keepLog">Keep Logged in?</label>
-            <input type="checkbox" name="keepLog">
-            <input type="submit" class="btn btn-info" value="Login">
+            <a href="./homepage.php"><input type="submit" class="btn btn-info" value="Login"></a>
         </fieldset>
     </form>
 </div>
