@@ -30,6 +30,7 @@ if(isset($_SESSION['loggedin'])){
             echo "<h3>Course: <a href='./modulesDisplay.php'>".$row['course_name']."</a></h3>";
         }
 }
+}
 ?>
 </div>
 </body>
