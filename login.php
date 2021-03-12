@@ -1,8 +1,5 @@
 <?php
 include "navBar.php";
-if(isset($_SESSION['loggedin'])){
- header("location: homepage.php");   
-}
 ?>
 <div class="container">
 <?php
@@ -53,7 +50,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
                             // Store data in session variables
                             $_SESSION['priv_id']=$priv_id;
                             $_SESSION["loggedin"] = true;
