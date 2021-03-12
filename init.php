@@ -1,8 +1,8 @@
 <?php
 session_start();
 //Setting up database access credentials
-$host='localhost';
-$user='admin';
+$host='mysql-server';
+$user='root';
 $password='tiaspbiqe2r';
 $dbname='university';
 //Database Connection with exit message upon error
