@@ -1,3 +1,6 @@
+<?php
+include 'init.php';
+?>
 <div class="container">
 <?php
 if(isset($_SESSION['loggedin'])){
