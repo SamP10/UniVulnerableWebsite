@@ -1,5 +1,4 @@
 <?php
-include 'init.php';
 include 'navBar.php';
 ?>
 <div class="container">
