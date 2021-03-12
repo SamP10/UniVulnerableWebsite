@@ -1,6 +1,6 @@
 <?php
 include "navBar.php";
-if(isset($_SESSION['loggedin']){
+if(isset($_SESSION['loggedin'])){
  header("location: homepage.php");   
 }
 ?>
