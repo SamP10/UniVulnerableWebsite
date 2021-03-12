@@ -1,8 +1,8 @@
 <?php
-include "navBar.php";
 if(!isset($_SESSION['loggedin'])){
     header("location: login.php");
-}
+} 
+include "navBar.php";
 ?>
 <div class="container" id="homepage">
     <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
