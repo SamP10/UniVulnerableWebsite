@@ -1,10 +1,12 @@
 <?php
 include "navBar.php";
+if(isset($_SESSION['loggedin']){
+ header("location: homepage.php");   
+}
 ?>
 <div class="container">
 <?php
 // Include config file
-require_once "init.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
