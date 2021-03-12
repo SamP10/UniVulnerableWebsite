@@ -38,7 +38,7 @@ if(isset($_SESSION['loggedin'])){
                 echo "</form>";
         }
     }
-}
+
 }
 ?>
 </div>
