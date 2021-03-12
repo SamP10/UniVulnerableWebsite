@@ -16,7 +16,7 @@ if(isset($_SESSION['loggedin'])){
             echo "<br>National Insurance: <input name='ni_number' value='".$row['ni_number']."'>";
             echo "<br>Address: <input name='address' value='".$row['address']."'>";
             echo "<input type='hidden' name='id' value='".$row['staff_id']."'>";
-            echo "<button type='submit' name='updateD' value='".$row['staff_id']."'>UPDATE DETAILS</button>";
+            echo "<button type='submit' id='updateD' name='updateD' value='".$row['staff_id']."'>UPDATE DETAILS</button>";
             echo "</form>";
         }
 
@@ -29,7 +29,7 @@ if(isset($_SESSION['loggedin'])){
             echo "<br>Contact: <input name='contact' value='0" . $row['contact']."'>";
             echo "<br>Address: <input name='address' value='".$row['address']."'>";
             echo "<input type='hidden' name='id' value='".$row['student_id']."'>";
-            echo "<br><button type='submit' name='updateD'>UPDATE DETAILS</button>";
+            echo "<br><button type='submit' id='updateD' name='updateD'>UPDATE DETAILS</button>";
             echo "</form>";
 
         }
@@ -40,7 +40,7 @@ if(isset($_SESSION['loggedin'])){
     echo"NEW PASSWORD: <input name='newPassword' type='password'><br>";
     echo"CONFIRM PASSWORD: <input name='confPassword' type='password'>";
     echo "<input type='hidden' name='id' value='".$id."'>";
-    echo"<button type='submit' name='updateP' value='".$id."'>UPDATE</button>";
+    echo"<button type='submit' id='updateP' name='updateP' value='".$id."'>UPDATE</button>";
     echo"</form>";
 
     if(isset($_POST['updateD'])){
@@ -53,7 +53,7 @@ if(isset($_SESSION['loggedin'])){
             $address=$_POST['address'];
             $sql="UPDATE staff SET contact=$contact, address='$address', ni_number='$ni_number' WHERE staff_id=$staff_id";
             mysqli_query($connect, $sql);
-            header("Location: accountDetails.php");
+            
             }else{
                 echo"Please fill all fields";
             }
@@ -66,7 +66,7 @@ if(isset($_SESSION['loggedin'])){
                 $id=$_POST['id'];
                 $sql="UPDATE students SET contact=$contact, address='$address' WHERE student_id=$id";
                 mysqli_query($connect, $sql);
-                header("Location: accountDetails.php");
+
             }else{
                 echo"Please fill all fields";
             }
@@ -82,7 +82,7 @@ if(isset($_SESSION['loggedin'])){
                 $hashedPassword = crypt($newpassword, gGouwXKp);
                 $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$id";
                 mysqli_query($connect, $update);
-                header("Location: accountDetails.php");
+
             } else {
                 echo "Passwords do not match!";
             }
@@ -94,5 +94,15 @@ if(isset($_SESSION['loggedin'])){
 }
 ?>
 </div>
+<script>
+    document.getElementById("updateD").onclick = function () {
+            location.href = "accountDetails.php";
+        };
+    </script>
+<script>
+    document.getElementById("updateP").onclick = function () {
+            location.href = "accountDetails.php";
+        };
+    </script>
 </body>
 </html>
