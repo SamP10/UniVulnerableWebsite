@@ -1,6 +1,16 @@
 <?php
 include_once "init.php";
 include "navBar.php";
+if($_SESSION['priv_id']==2){
+        $username=$_SESSION['username'];
+        $sql="SELECT staff_id FROM staff WHERE username='$username'";
+        $query=mysqli_query($connect, $sql);
+
+        $result=$query->fetch_row();
+        $staff_id=$result[0];
+        $_SESSION['staff_id']=$staff_id;
+        header('location: modulesDisplay.php');
+    }
 ?>
 <div class="container">
 <?php
@@ -19,17 +29,6 @@ if(isset($_SESSION['loggedin'])){
             $_SESSION['course_id']=$course_id;
             echo "<h3>Course: <a href='./modulesDisplay.php'>".$row['course_name']."</a></h3>";
         }
-
-    }elseif($_SESSION['priv_id']==2){
-        $username=$_SESSION['username'];
-        $sql="SELECT staff_id FROM staff WHERE username='$username'";
-        $query=mysqli_query($connect, $sql);
-
-        $result=$query->fetch_row();
-        $staff_id=$result[0];
-        $_SESSION['staff_id']=$staff_id;
-        header('location: modulesDisplay.php');
-    }
 }
 ?>
 </div>
