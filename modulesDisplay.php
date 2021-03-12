@@ -1,6 +1,3 @@
-<?php
-include 'navBar.php';
-?>
 <div class="container">
 <?php
 if(isset($_SESSION['loggedin'])){
