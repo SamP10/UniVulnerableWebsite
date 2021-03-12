@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <input type="submit" id="loginRed" class="btn btn-info" value="Login">
+            <button type="submit" id="loginRed" class="btn btn-info" value="Login">Login</button>
         </fieldset>
     </form>
 </div>
