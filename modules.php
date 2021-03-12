@@ -28,7 +28,7 @@ if(isset($_SESSION['loggedin'])){
         $result=$query->fetch_row();
         $staff_id=$result[0];
         $_SESSION['staff_id']=$staff_id;
-        include "modulesDisplay.php";
+        header('location: modulesDisplay.php');
     }
 }
 ?>
