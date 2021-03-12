@@ -19,7 +19,8 @@ if(isset($_SESSION['loggedin'])){
         while($row=mysqli_fetch_array($run)){
             $_SESSION['course_id']=$course_id;
             echo "<h3>Course: <a href='./modulesDisplay.php'>".$row['course_name']."</a></h3>";
-        }elseif($_SESSION['priv_id']==2){
+        }
+    }elseif($_SESSION['priv_id']==2){
         $username=$_SESSION['username'];
         $sql="SELECT staff_id FROM staff WHERE username='$username'";
         $query=mysqli_query($connect, $sql);
