@@ -1,7 +1,6 @@
 <?php
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     header("location: homepage.php");
-    exit;
 }
 include "navBar.php";
 // Check if the user is already logged in, if yes then redirect him to welcome page
