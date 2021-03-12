@@ -94,13 +94,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="password">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <input type="submit" id="login" class="btn btn-info" value="Login">
+            <input type="submit" id="loginRed" class="btn btn-info" value="Login">
         </fieldset>
     </form>
 </div>
 </body>
 <script>
-        document.getElementById("login").onclick = function () {
+        document.getElementById("loginRed").onclick = function () {
             location.href = "homepage.php";
         };
     </script>
