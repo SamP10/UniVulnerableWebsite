@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+if(isset($_SESSION["loggedin"])){
     header("location: homepage.php");
 }
 include "navBar.php";
