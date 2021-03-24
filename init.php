@@ -1,7 +1,7 @@
 <?php
 session_start();
 //Setting up database access credentials
-$host='mysql-server';
+$host='mariadb';
 $user='root';
 $password='tiaspbiqe2r';
 $dbname='university';
