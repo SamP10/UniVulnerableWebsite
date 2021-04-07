@@ -79,7 +79,7 @@ if(isset($_SESSION['loggedin'])){
             $id=$_POST['updateP'];
 
             if ($newpassword == $confPassword) {
-                $hashedPassword = crypt($newpassword, '$1$mysalt$');
+                $hashedPassword = password_hash($newpassword, PASSWORD_DEFAULT);
                 $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$id";
                 mysqli_query($connect, $update);
 
