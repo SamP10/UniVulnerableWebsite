@@ -53,5 +53,15 @@ if(isset($_POST['updateP'])) {
 }
 ?>
 </div>
+<script>
+    document.getElementById("updateD").onclick = function () {
+            location.href = "accountDetails.php";
+        };
+    </script>
+<script>
+    document.getElementById("updateP").onclick = function () {
+            location.href = "accountDetails.php";
+        };
+    </script>
 </body>
 </html>
