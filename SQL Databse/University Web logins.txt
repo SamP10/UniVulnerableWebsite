@@ -1,6 +1,6 @@
 University Logins:
 USER			PASSWORD		PRIV_ID	
-W.Sean8406		K1rkgateM4rk		1
+W.Sean8406		nevertoolat4		1
 K.Eden6310		admin_priv146		1
 C.Melissa7594		MelBIsQueen		2
 L.Dale186		Fufu-1243		2
