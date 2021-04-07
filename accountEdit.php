@@ -32,7 +32,7 @@ if(isset($_POST['updateP'])) {
         $confPassword = $_POST['confPassword'];
 
         if ($newpassword == $confPassword) {
-            $hashedPassword = md5($newpassword);
+            $hashedPassword = crypt($newpassword);
             $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$id";
             mysqli_query($connect, $update);
         } else {
