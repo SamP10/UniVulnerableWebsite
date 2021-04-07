@@ -33,7 +33,7 @@ if(isset($_POST['updateP'])) {
         $uid = $_POST['updateP'];
         if ($newpassword == $confPassword) {
             $hashedPassword =  password_hash($newpassword, PASSWORD_DEFAULT);
-            $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$uid";
+            $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE id=$uid";
             mysqli_query($connect, $update);
         } else {
             echo "Passwords do not match!";
