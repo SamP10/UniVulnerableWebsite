@@ -4,9 +4,6 @@ include_once "init.php";
 ?>
 <div class="container">
 <?php
-if(!isset($_SESSION['loggedin']) && $_SESSION['priv_id']!=1){
-    header("Location: login.php");
-}
 $id=$_POST['id'];
 $sql="SELECT * FROM useraccounts WHERE id=$id";
 $result=mysqli_query($connect, $sql) or die (mysqli_error());
@@ -35,10 +32,9 @@ if(isset($_POST['updateP'])) {
         $confPassword = $_POST['confPassword'];
 
         if ($newpassword == $confPassword) {
-            $hashedPassword = crypt($newpassword, gGouwXKp);
+            $hashedPassword = md5($newpassword);
             $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$id";
             mysqli_query($connect, $update);
-            header("Location: accountSearch.php");
         } else {
             echo "Passwords do not match!";
         }
@@ -53,7 +49,6 @@ if(isset($_POST['updateP'])) {
         $user_id=$_POST['user_id'];
         $sql="UPDATE useraccounts SET username='$username', email='$email', priv_id='$priv_id', user_id='$user_id' WHERE id=$id ";
         mysqli_query($connect, $sql);
-        header("Location: accountSearch.php");
     }
 }
 ?>
