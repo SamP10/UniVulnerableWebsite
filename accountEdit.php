@@ -30,7 +30,7 @@ if(isset($_POST['updateP'])) {
     if (!empty($_POST['newPassword']) && !empty($_POST['confPassword'])) {
         $newpassword = $_POST['newPassword'];
         $confPassword = $_POST['confPassword'];
-
+        $id = $_POST['id'];
         if ($newpassword == $confPassword) {
             $hashedPassword =  password_hash($newpassword, PASSWORD_DEFAULT);
             $update = "UPDATE useraccounts SET password='$hashedPassword' WHERE user_id=$id";
