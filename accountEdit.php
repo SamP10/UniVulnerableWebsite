@@ -41,7 +41,8 @@ if(isset($_POST['updateP'])) {
     } else {
         echo "Password cannot be empty";
     }
-}elseif(isset($_POST['updateA'])){
+}
+if(isset($_POST['updateA'])){
     if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['priv_id']) && !empty($_POST['id'])){
         $username=$_POST['username'];
         $email=$_POST['email'];
